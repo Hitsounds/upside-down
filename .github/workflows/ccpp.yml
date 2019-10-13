@@ -10,10 +10,12 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: build
-      run: ls $GITHUB_WORKSPACE
+      run: |
+        echo "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\bin\MSBuild.exe  RomanCalc.sln /p:Configuration=Release /p:Platform=x64"
+        "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe"  D:/a/upside-down/upside-down/RomanCalc.sln /p:Configuration=Release /p:Platform=x64
         
     
     - uses: actions/upload-artifact@master
       with:
         name: exe
-        path: $GITHUB_WORKSPACE\bin\x64\Release\RomanCalc.exe
+        path: D:/a/upside-down/upside-down/bin/x64/Release/RomanCalc.exe
