@@ -11,7 +11,7 @@ std::string int_to_roman(int integer) {
 	//Array of how many of each char we need -- Probs could combine both lists into a struct or map
 	int roman_nums[7] = {0};
 
-	//Find out how many of each character we need
+	//Find out how many of each character we need by finding DIV
 	roman_nums[6] = integer / 1000;
 	integer = integer - (roman_nums[6] * 1000);
 	roman_nums[5] = integer / 500;
@@ -40,7 +40,54 @@ std::string int_to_roman(int integer) {
 
 
 int roman_to_int(const std::string& roman) {
-	return 0;
+	int roman_len = roman.length();
+	int value = 0;
+	for (int i = 0; i < roman_len; i++) {
+		switch (roman[i]) {
+
+		case 'I':
+		case 'i':
+			value = value + 1;
+			break;
+
+		case 'V':
+		case 'v':
+			value = value + 5;
+			break;
+
+		case 'X':
+		case 'x':
+			value = value + 10;
+			break;
+
+		case 'L':
+		case 'l':
+			value = value + 50;
+			break;
+
+		case 'C':
+		case 'c':
+			value = value + 100;
+			break;
+
+		case 'D':
+		case 'd':
+			value = value + 500;
+			break;
+
+		case 'M':
+		case 'm':
+			value = value + 1000;
+			break;
+
+		default:
+			//Possible error trapping
+			break;
+
+
+		}
+	}
+	return value;
 
 
 }

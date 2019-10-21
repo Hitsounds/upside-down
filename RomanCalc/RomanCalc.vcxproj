@@ -142,11 +142,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="NumberClass.cpp" />
     <ClCompile Include="src\romanNumerals.cpp" />
     <ClCompile Include="src\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\romanNumerals.h" />
+    <ClInclude Include="..\include\RomanCalc\NumberClass.h" />
+    <ClInclude Include="..\include\RomanCalc\romanNumerals.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

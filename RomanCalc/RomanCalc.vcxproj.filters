@@ -21,9 +21,15 @@
     <ClCompile Include="src\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="NumberClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\romanNumerals.h">
+    <ClInclude Include="..\include\RomanCalc\romanNumerals.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\RomanCalc\NumberClass.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
