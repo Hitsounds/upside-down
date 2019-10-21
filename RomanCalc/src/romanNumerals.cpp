@@ -27,7 +27,7 @@ std::string int_to_roman(int integer) {
 
 	//Create string output in correct order
 	std::string output = "";
-	for (int i = 0; i < 7; i++) {
+	for (int i = 6; i >= 0; i--) {
 		for (roman_nums[i]; roman_nums[i] > 0; roman_nums[i]--) {
 			output = output + romans[i];
 		}

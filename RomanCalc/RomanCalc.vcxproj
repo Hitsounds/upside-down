@@ -142,7 +142,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="NumberClass.cpp" />
+    <ClCompile Include="src\NumberClass.cpp" />
     <ClCompile Include="src\romanNumerals.cpp" />
     <ClCompile Include="src\Main.cpp" />
   </ItemGroup>

@@ -8,18 +8,23 @@ class number {
 
 public:
 	//Constructors
-	number(int);
-	number(std::string);
+	number(const int&);
+	number(const std::string&);
+	number();
 
 	//Get values
 	int get_int();
 	std::string get_rom();
 
+	//Set values
+	void set_int(const int&);
+	void set_rom(const std::string&);
+
 	//Mathematical operations
-	number operator+(number);
-	number operator-(number);
-	number operator/(number);
-	number operator*(number);
+	number operator+(const number&);
+	number operator-(const number&);
+	number operator/(const number&);
+	number operator*(const number&);
 
 
 
