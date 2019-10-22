@@ -31,6 +31,6 @@ public:
 private:
 	//Don't want people editing these
 	int int_val;
+	int decimal_com;
 	std::string roman_val;
-
 };

@@ -6,7 +6,6 @@
 
 
 int main() {
-
 	std::string Ichi;
 	std::string Ni;
 	std::cout << "Enter the first number as a roman numeral: ";
@@ -20,7 +19,7 @@ int main() {
 	std::cout << "\nFirst number" << ":\nArabic: " << numIchi.get_int() << "\nRoman Numerals: " << numIchi.get_rom() << "\n\n";
 	std::cout << "Second number" << ":\nArabic: " << numNi.get_int() << "\nRoman Numerals: " << numNi.get_rom() << "\n\n";
 
-	std::cout << "Enter corresponding symbol for the operation you want to perform:\n(+)Addition or (-)Subtraction\n ";
+	std::cout << "Enter corresponding symbol for the operation you want to perform:\n(+)Addition or (-)Subtraction ";
 
 	number result;
 	std::string temp;
@@ -39,7 +38,6 @@ int main() {
 			std::cout << "Bad input! Not + or -. Presuming + input...\n";
 			result = numIchi + numNi;
 			break;
-
 
 	}
 

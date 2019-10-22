@@ -31,11 +31,9 @@ std::string int_to_roman(int integer) {
 		for (roman_nums[i]; roman_nums[i] > 0; roman_nums[i]--) {
 			output = output + romans[i];
 		}
-
 	}
 	//Return output
 	return output;
-
 }
 
 
@@ -44,7 +42,6 @@ int roman_to_int(const std::string& roman) {
 	int value = 0;
 	for (int i = 0; i < roman_len; i++) {
 		switch (roman[i]) {
-
 		case 'I':
 		case 'i':
 			value = value + 1;
@@ -83,19 +80,11 @@ int roman_to_int(const std::string& roman) {
 		default:
 			//Possible error trapping
 			break;
-
-
 		}
 	}
 	return value;
-
-
 }
 
 bool validate_roman(const std::string& roman) {
 	return false;
-
-
-
-
 }
