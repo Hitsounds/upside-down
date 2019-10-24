@@ -16,8 +16,8 @@ int main() {
 	number numIchi(Ichi);
 	number numNi(Ni);
 
-	std::cout << "\nFirst number" << ":\nArabic: " << numIchi.get_int() << "\nRoman Numerals: " << numIchi.get_rom() << "\n\n";
-	std::cout << "Second number" << ":\nArabic: " << numNi.get_int() << "\nRoman Numerals: " << numNi.get_rom() << "\n\n";
+	std::cout << "\nFirst number" << ":\nArabic: " << numIchi.get_valAsDouble() << "\nRoman Numerals: " << numIchi.get_rom() << "\n\n";
+	std::cout << "Second number" << ":\nArabic: " << numNi.get_valAsDouble() << "\nRoman Numerals: " << numNi.get_rom() << "\n\n";
 
 	std::cout << "Enter corresponding symbol for the operation you want to perform:\n(+)Addition or (-)Subtraction ";
 
@@ -38,10 +38,9 @@ int main() {
 			std::cout << "Bad input! Not + or -. Presuming + input...\n";
 			result = numIchi + numNi;
 			break;
-
 	}
 
-	std::cout << "\nResult" << ":\nArabic: " << result.get_int() << "\nRoman Numerals: " << result.get_rom() << "\n\n";
+	std::cout << "\nResult" << ":\nArabic: " << result.get_valAsDouble() << "\nRoman Numerals: " << result.get_rom() << "\n\n";
 
 /*	int input = 1;
 	std::cin >> input;

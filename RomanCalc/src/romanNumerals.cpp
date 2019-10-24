@@ -5,6 +5,13 @@
 
 
 std::string int_to_roman(int integer) {
+	//Function to turn a integer value into a roman numeral string.=
+	if (integer < 0) {
+		//A exception that could be caught higher up if need be
+		throw "An integer less than 0 was passed to int_to_roman().";
+		return "NaN";
+	}
+
 	//Array of characters to map to numbers
 	const char romans[7] = { 'I','V','X','L','C','D','M' };
 
@@ -78,13 +85,9 @@ int roman_to_int(const std::string& roman) {
 			break;
 
 		default:
-			//Possible error trapping
+			//Possible error trapping currently just ignores
 			break;
 		}
 	}
 	return value;
-}
-
-bool validate_roman(const std::string& roman) {
-	return false;
 }
