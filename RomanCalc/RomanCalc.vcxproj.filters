@@ -18,9 +18,6 @@
     <ClCompile Include="src\romanNumerals.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\NumberClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
