@@ -385,22 +385,5 @@
  <resources>
   <include location="RomanGUI.qrc"/>
  </resources>
- <connections>
-  <connection>
-   <sender>num1</sender>
-   <signal>textEdited(QString)</signal>
-   <receiver>RomanNum1</receiver>
-   <slot>setText(QString)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>160</x>
-     <y>102</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>146</x>
-     <y>328</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

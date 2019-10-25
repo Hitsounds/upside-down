@@ -16,6 +16,7 @@ public:
 
 public slots:
 	void on_roman_input_change(QString);
+	void submit();
 
 private:
 	Ui::RomanGUIClass ui;
