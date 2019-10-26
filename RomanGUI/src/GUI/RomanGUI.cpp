@@ -28,20 +28,25 @@ void RomanGUI::on_roman_input_change(QString inp) {
 }
 
 void RomanGUI::submit() {
+	result = number();
 	ui.ArabicResult->setText("");
 	ui.RomanResult->setText("");
 	const QLineEdit* inputs[] = { ui.num1, ui.num2 };
+	bool valid = true;
 	for (int i = 0; i < 2; i++) {
 		try {
 			number::validate_roman(inputs[i]->text().toStdString());
 		}
-		catch (const char* err) {
+		catch (std::string err) {
 			QMessageBox error;
-			error.setText(err);
+			std::string err_msg = "Numeral " + std::to_string(i+1) + " " + err;
+			error.setText(QString::fromStdString(err_msg));
 			error.exec();
+			valid = false;
+			return;
 		}
 	}
-
+	
 
 	if (ui.opSelection->currentText() == "+") {
 		result = num1 + num2;
@@ -52,15 +57,25 @@ void RomanGUI::submit() {
 		}
 		catch (const char* err) {
 			QMessageBox error;
-			error.setText("Result is a negative number or zero and as such can't be represented as a roman numeral.");
+			error.setText("Result is a negative number and as such can't be represented as a roman numeral.");
 			error.exec();
+			return;
 		}
+	}
+	if (result.get_valAsDouble() == 0) {
+		QMessageBox error;
+		error.setText("Result is 0 and as such can't be represented as a roman numeral.");
+		error.exec();
+		return;
 	}
 	ui.ArabicResult->setText(QString::number(result.get_valAsDouble()));
 	ui.RomanResult->setText(QString::fromStdString(result.get_rom()));
 }
 
 void RomanGUI::cancel() {
+	num1 = number();
+	num2 = number();
+	result = number();
 	ui.num1->setText("");
 	ui.num2->setText("");
 	ui.RomanNum1->setText("");

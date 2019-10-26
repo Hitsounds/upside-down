@@ -6,5 +6,3 @@ std::string int_to_roman(int integer);
 
 int roman_to_int(const std::string& roman);
 //Turns romans back into numbers
-
-bool validate_roman(std::string roman);
