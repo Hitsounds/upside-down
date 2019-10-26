@@ -1,5 +1,6 @@
 #include <RomanCalc/romanNumerals.h>
 #include <RomanCalc/NumberClass.h>
+#include <regex>
 
 void number::construct_roman() {
 	//Constructs a roman numeral from member vars : int_val and decimal_com e.g XXI.VI
@@ -52,7 +53,7 @@ number::number(){
 	//Default construction
 	int_val = 0;
 	decimal_com = 0;
-	roman_val = "0";
+	roman_val = "";
 }
 
 number number::operator+ (const number& b){
@@ -102,4 +103,24 @@ void number::set_rom(const std::string& roman_v) {
 void number::set_decimal_com(const int& dec) {
 	decimal_com = dec;
 	construct_roman();
+}
+
+bool number::validate_roman(std::string roman) {
+	number rom(roman);
+	const std::regex re("[^IVXLCDM]", std::regex_constants::icase);
+	if (std::regex_search(rom.get_rom(), re)) {
+		throw "Invalid Chars in Roman Numeral.";
+		return false;
+	}
+	int int_value = roman_to_int(roman);
+	if (int_value > 4000) {
+		throw "Too large";
+		return false;
+	}
+	if (rom.get_rom() != roman) {
+		throw "Does not follow additive rule.";
+		return false;
+	}
+	return true;
+
 }
