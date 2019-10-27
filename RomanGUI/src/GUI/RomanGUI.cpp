@@ -37,7 +37,6 @@ void RomanGUI::submit() {
 	ui.ArabicResult->setText("");
 	ui.RomanResult->setText("");
 	const QLineEdit* inputs[] = { ui.num1, ui.num2 };
-	bool valid = true;
 	for (int i = 0; i < 2; i++) {
 		try {
 			number::validate_roman(inputs[i]->text().toStdString());
@@ -47,7 +46,6 @@ void RomanGUI::submit() {
 			std::string err_msg = "Numeral " + std::to_string(i+1) + " " + err;
 			error.setText(QString::fromStdString(err_msg));
 			error.exec();
-			valid = false;
 			return;
 		}
 	}

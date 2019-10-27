@@ -370,6 +370,9 @@
    </property>
   </widget>
   <widget class="QPushButton" name="Submit">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -380,6 +383,9 @@
    </property>
    <property name="text">
     <string>Submit</string>
+   </property>
+   <property name="checkable">
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="Cancel">
@@ -430,6 +436,22 @@
     <hint type="destinationlabel">
      <x>25</x>
      <y>122</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>Submit</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>65</x>
+     <y>121</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>55</x>
+     <y>143</y>
     </hint>
    </hints>
   </connection>
