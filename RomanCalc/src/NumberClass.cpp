@@ -107,28 +107,36 @@ void number::set_decimal_com(const int& dec) {
 }
 
 bool number::validate_roman(std::string roman) {
+	//Thanks to Anivarth for bug testing
+	//String to upper-case
 	std::transform(roman.begin(), roman.end(), roman.begin(), ::toupper);
+
 	number rom(roman);
+	//Check for invalid characters
 	const std::regex re("[^IVXLCDM.]", std::regex_constants::icase);
 	if (std::regex_search(roman, re)) {
 		throw std::string(": Invalid Chars in Roman Numeral.");
 		return false;
 	}
+	//Check if input value is too large
 	int int_value = roman_to_int(roman);
 	if (int_value > 4000) {
 		throw std::string(": Too large");
 		return false;
 	}
+	//Check if the roman numeral can be represented as a smaller string
 	if (roman.length() > rom.get_rom().length()) {
 		std::string msg = "should be condensed did you mean: " + rom.get_rom();
 		throw msg;
 		return false;
 	}
+	//Check if the numerals are in the right order
 	if (rom.get_rom() != roman) {
 		std::string msg = "is in the wrong order did you mean: " + rom.get_rom();
 		throw msg;
 		return false;
 	}
+	//All checks passed
 	return true;
 
 }

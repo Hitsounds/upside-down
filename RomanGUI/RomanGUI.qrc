@@ -1,3 +1,5 @@
 <RCC>
-    <qresource prefix="/RomanGUI"/>
+    <qresource prefix="/RomanGUI">
+        <file alias="Fortnite.otf">Resources/BurbankBigCondensed-Bold.otf</file>
+    </qresource>
 </RCC>

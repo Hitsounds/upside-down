@@ -1,12 +1,17 @@
 #include "RomanGUI.h"
 #include <string>
 #include <QMessageBox>
+#include <QFontDatabase>
 #include "RomanCalc/NumberClass.h"
 
 RomanGUI::RomanGUI(QWidget *parent)
 	: QWidget(parent)
 {
 	ui.setupUi(this);
+	int id = QFontDatabase::addApplicationFont(":/RomanGUI/Fortnite.otf");
+	QString family = QFontDatabase::applicationFontFamilies(id).at(0);
+	QFont fortnite(family);
+	ui.label->setFont(fortnite);
 	QObject::connect(ui.num1, &QLineEdit::textEdited, this, &RomanGUI::on_roman_input_change);
 	QObject::connect(ui.num2, &QLineEdit::textEdited, this, &RomanGUI::on_roman_input_change);
 	QObject::connect(ui.Submit, &QPushButton::clicked, this, &RomanGUI::submit);

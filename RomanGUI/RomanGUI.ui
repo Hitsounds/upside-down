@@ -14,7 +14,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>RomanGUI</string>
+   <string>EPIC Roman Calculator</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>E:/Pictures/21567911_310854739382925_7180849074512330752_n.jpg</normaloff>E:/Pictures/21567911_310854739382925_7180849074512330752_n.jpg</iconset>
   </property>
   <property name="autoFillBackground">
    <bool>false</bool>
@@ -300,7 +304,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
+     <string notr="true">background-color: rgb(255, 225, 246);</string>
     </property>
     <property name="text">
      <string/>
@@ -332,7 +336,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
+     <string notr="true">background-color: rgb(255, 225, 246);</string>
     </property>
     <property name="readOnly">
      <bool>true</bool>

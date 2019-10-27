@@ -107,7 +107,6 @@
   <ItemGroup>
     <ProjectReference Include="..\RomanCalc\RomanCalc.vcxproj">
       <Project>{eb4018b9-39d0-4299-aac5-fb2ff13fc81f}</Project>
-      <UseLibraryDependencyInputs>true</UseLibraryDependencyInputs>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
