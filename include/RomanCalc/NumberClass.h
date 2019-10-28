@@ -12,6 +12,7 @@ public:
 	//You shouldn't need to call this function as it should be called automatically when it needs to be.
 	//Maybe I should make it private. But it doesn't hurt to allow it to be called from outside.
 
+	static bool validate_roman(std::string roman);
 
 	//Constructors
 	number(const int&);
