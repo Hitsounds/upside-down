@@ -2,6 +2,7 @@
 #include <RomanCalc/NumberClass.h>
 #include <regex>
 #include <algorithm>
+#include <cmath>
 
 void number::construct_roman() {
 	//Constructs a roman numeral from member vars : int_val and decimal_com e.g XXI.VI
@@ -22,12 +23,13 @@ number::number(const std::string& roman_v) {
 	//Constructor for roman value
 	std::size_t pos = roman_v.find(".");
 	if (pos != std::string::npos) {
-		//Use substr to isolate integer part
+		//Use substr to isolate integer part and convert to int
 		int_val = roman_to_int(roman_v.substr(0,pos));
-		//Use substr to isolate decimal part
+		//Use substr to isolate decimal part and convert to int
 		decimal_com = roman_to_int(roman_v.substr(pos + 1, (roman_v.size() - pos) + 1));
 		int_val = int_val + decimal_com / 100;
 		decimal_com = decimal_com % 100;
+		//Set object roman_val attribute from new values
 		construct_roman();
 		return;
 	}
@@ -39,14 +41,14 @@ number::number(const std::string& roman_v) {
 number::number(const double& val) {
 	//Constructor for floats. Going to be some data loss but im not going to be using this constructor.
 	int_val = static_cast<int>(val);
-	decimal_com = static_cast<int>((val - int_val) * 100);
+	decimal_com = round((val - int_val) * 100);
 	construct_roman();
 }
 
 number::number(const float& val) {
 	//Constructor for floats. Going to be some data loss but im not going to be using this constructor.
 	int_val = static_cast<int>(val);
-	decimal_com = static_cast<int>((val - int_val) * 100);
+	decimal_com = round((val - int_val) * 100);
 	construct_roman();
 }
 
@@ -66,9 +68,9 @@ number number::operator+ (const number& b){
 }
 
 number number::operator- (const number& b) {
-	//Finds the new decimal component 
-	int new_decimal = (100+(decimal_com - b.decimal_com) % 100)%100;
-	//Finds the new integer value 
+	//Finds the new decimal component: so -1 gives 99 instead of 1
+	int new_decimal = (100 + (decimal_com - b.decimal_com) % 100) % 100;
+	//Finds the new integer value : make sure a decimal com of -100 results in a div of -1
 	int new_int_val = int_val - b.int_val + ((decimal_com - b.decimal_com + 100) / 100) - 1;
 	number output(new_int_val);
 	output.set_decimal_com(new_decimal);
@@ -107,30 +109,31 @@ void number::set_decimal_com(const int& dec) {
 }
 
 bool number::validate_roman(std::string roman) {
-	//Thanks to Anivarth for bug testing
+	//Remove spaces
+	roman = std::regex_replace(roman, std::regex(" "), "");
 	//String to upper-case
 	std::transform(roman.begin(), roman.end(), roman.begin(), ::toupper);
 
-	number rom(roman);
-	//Check for invalid characters
+	//Check for invalid characters: not (ivxlcdm.) upper or lower case
 	const std::regex re("[^IVXLCDM.]", std::regex_constants::icase);
 	if (std::regex_search(roman, re)) {
-		throw std::string(": Invalid Chars in Roman Numeral.");
+		throw std::string(": Invalid chars in Roman Numeral.");
 		return false;
 	}
 	//Check if input value is too large
 	int int_value = roman_to_int(roman);
 	if (int_value > 4000) {
-		throw std::string(": Too large");
+		throw std::string(": Too large input values must be below MMMM");
 		return false;
 	}
-	//Check if the roman numeral can be represented as a smaller string
+	//Check if the roman numeral can be represented as a smaller string which means the user could shorten their input
+	number rom(roman);
 	if (roman.length() > rom.get_rom().length()) {
 		std::string msg = "should be condensed did you mean: " + rom.get_rom();
 		throw msg;
 		return false;
 	}
-	//Check if the numerals are in the right order
+	//Check if the numerals are in the right order as the objects roman str attribute won't equal the input if the input is in the wrong order
 	if (rom.get_rom() != roman) {
 		std::string msg = "is in the wrong order did you mean: " + rom.get_rom();
 		throw msg;

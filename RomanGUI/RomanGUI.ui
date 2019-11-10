@@ -48,7 +48,7 @@
     <string notr="true">font: 27px &quot;Burbank Big Cd Bd&quot;;</string>
    </property>
    <property name="text">
-    <string>Marv's Epic Roman Numeral Calculator</string>
+    <string>Roman Numeral Calculator</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="num1">
@@ -359,19 +359,6 @@
     </property>
    </widget>
   </widget>
-  <widget class="QCheckBox" name="checkBox">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>110</y>
-     <width>271</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>I Solemnly swear not to try and break this program</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="Submit">
    <property name="enabled">
     <bool>true</bool>
@@ -410,11 +397,11 @@
      <x>490</x>
      <y>20</y>
      <width>441</width>
-     <height>141</height>
+     <height>151</height>
     </rect>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; font-weight:600;&quot;&gt;Tips:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;1. When one roman numeral can replace multiple of another use one. E.g. &amp;quot;V&amp;quot; instead of &amp;quot;IIIII&amp;quot;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;2. Don't subtract a large number from a small number as negative results can't be represented as a roman numeral.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; font-weight:600;&quot;&gt;Tips:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;1. When one roman numeral can replace multiple of another use one. E.g. &amp;quot;V&amp;quot; instead of &amp;quot;IIIII&amp;quot;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;2. Don't subtract a large number from a small number as negative results can't be represented as a roman numeral.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;3. Any decimals will be represented as x/100(2d.p.). E.g. X.XI = 10.11 &amp;amp; X.I = 10.01&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
    <property name="wordWrap">
     <bool>true</bool>
@@ -425,22 +412,5 @@
  <resources>
   <include location="RomanGUI.qrc"/>
  </resources>
- <connections>
-  <connection>
-   <sender>checkBox</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>checkBox</receiver>
-   <slot>setDisabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>124</x>
-     <y>120</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>25</x>
-     <y>122</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>
